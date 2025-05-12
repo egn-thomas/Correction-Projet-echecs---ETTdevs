@@ -1,18 +1,19 @@
-import java.util.ArrayList;
+public class Davalier extends Piece {
+    import java.util.ArrayList;
 
-class Favalier extends Piece{
+class Cavalier extends Piece{
     
-    public Favalier(){
+    public Cavalier(){
 	super('B', new Position());
     }
 
-    public Favalier(char couleur, Position position){
+    public Cavalier(char couleur, Position position){
 	super(couleur, position);
     }
 
 
     public String getType(){
-    	return new String("favalier");
+    	return new String("cavalier");
     }
     
 
@@ -142,74 +143,19 @@ class Favalier extends Piece{
 	    else if(pi.getCouleur() != this.getCouleur())
 		liste.add(new Position(indiceX, indiceY));
 	}
+	
+	Tour t = new Tour(this.getCouleur(), this.getPosition());
+	Fou f = new Fou(this.getCouleur(), this.getPosition());
 
-    // Fou
-    // Dans les 4 directions
+	
+	ArrayList<Position> deplacementPossible = t.getDeplacementPossible(pl);
+	for(Position p : deplacementPossible)
+	    liste.add(p);
 
-	//Vers le haut-gauche
-	boolean obstacle = false;
-	indiceX = positionDepartX - 1;
-	indiceY = positionDepartY + 1;
-	while(!obstacle && (indiceX >= 0) && (indiceY < 8)){
-	    Piece pi = pl.getCase(indiceX, indiceY);
-	    if(pi == null)
-		liste.add(new Position(indiceX, indiceY));
-	    else{
-		obstacle = true;
-		if(pi.getCouleur() != this.getCouleur())
-		    liste.add(new Position(indiceX, indiceY));
-	    }
-	    indiceX = indiceX - 1;
-	    indiceY = indiceY + 1;
-	}
-	//Vers le bas-gauche
-	obstacle = false;
-	indiceX = positionDepartX - 1;
-	indiceY = positionDepartY - 1;
-	while(!obstacle && (indiceX >= 0) && (indiceY >= 0)){
-	    Piece pi = pl.getCase(indiceX, indiceY);
-	    if(pi == null)
-		liste.add(new Position(indiceX, indiceY));
-	    else{
-		obstacle = true;
-		if(pi.getCouleur() != this.getCouleur())
-		    liste.add(new Position(indiceX, indiceY));
-	    }
-	    indiceX = indiceX - 1;
-	    indiceY = indiceY - 1;
-	}
-	//Vers le haut-droite
-	obstacle = false;
-	indiceX = positionDepartX + 1;
-	indiceY = positionDepartY + 1;
-	while(!obstacle && (indiceX < 8) && (indiceY < 8)){
-	    Piece pi = pl.getCase(indiceX, indiceY);
-	    if(pi == null)
-		liste.add(new Position(indiceX, indiceY));
-	    else{
-		obstacle = true;
-		if(pi.getCouleur() != this.getCouleur())
-		    liste.add(new Position(indiceX, indiceY));
-	    }
-	    indiceX = indiceX + 1;
-	    indiceY = indiceY + 1;
-	}
-	//Vers le bas-droite
-	obstacle = false;
-	indiceX = positionDepartX + 1;
-	indiceY = positionDepartY - 1;
-	while(!obstacle && (indiceX < 8) && (indiceY >= 0)){
-	    Piece pi = pl.getCase(indiceX, indiceY);
-	    if(pi == null)
-		liste.add(new Position(indiceX, indiceY));
-	    else{
-		obstacle = true;
-		if(pi.getCouleur() != this.getCouleur())
-		    liste.add(new Position(indiceX, indiceY));
-	    }
-	    indiceX = indiceX + 1;
-	    indiceY = indiceY - 1;
-	}
+	deplacementPossible = f.getDeplacementPossible(pl);
+	for(Position p : deplacementPossible)
+	    liste.add(p);
+
 
 	return liste;
     }
