@@ -70,6 +70,10 @@ class MainGraphique{
     }
     
     public static void main(String[] args){
+	boolean cheat = false;
+	if (args[1].equals("cheat")){
+		cheat = true;
+	}
 	Plateau p = new Plateau();
 	Fenetre f = new Fenetre("Jeu d'échecs", 8*MainGraphique.tailleCase, 10*MainGraphique.tailleCase);
 	Souris souris = f.getSouris();
@@ -78,7 +82,7 @@ class MainGraphique{
 	Piece selectionne1;
 	Position selectionne2;
 	
-	dessinerPlateau(f, p, couleurQuiJoue);
+	dessinerPlateau(f, p, couleurQuiJoue, cheat);
 	f.rafraichir();
 
 	selectionne1 = null;
