@@ -1,19 +1,18 @@
-public class Davalier extends Piece {
-    import java.util.ArrayList;
+import java.util.ArrayList;
 
-class Cavalier extends Piece{
+public class Davalier extends Piece {
     
-    public Cavalier(){
+    public Davalier(){
 	super('B', new Position());
     }
 
-    public Cavalier(char couleur, Position position){
+    public Davalier(char couleur, Position position){
 	super(couleur, position);
     }
 
 
     public String getType(){
-    	return new String("cavalier");
+    	return new String("davalier");
     }
     
 
