@@ -107,7 +107,7 @@ class MainGraphique{
 	    }
 	    
 	    ArrayList<Position> possibilite = selectionne1.getDeplacementPossible(p);
-	    dessinerPlateau(f, p, couleurQuiJoue);
+	    dessinerPlateau(f, p, couleurQuiJoue, cheat);
 	    afficheDepPossible(f,possibilite);
 	    f.rafraichir();
 	
@@ -133,7 +133,7 @@ class MainGraphique{
 		selectionne1 = null;
 		selectionne2 = null;
 	    }
-	    dessinerPlateau(f, p, couleurQuiJoue);
+	    dessinerPlateau(f, p, couleurQuiJoue, cheat);
 	    f.rafraichir();
 	    
 	}
