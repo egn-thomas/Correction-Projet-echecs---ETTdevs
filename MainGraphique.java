@@ -8,7 +8,7 @@ class MainGraphique{
 
     public static final int tailleCase = 75;
 
-    public static void dessinerPlateau(Fenetre f, Plateau p, char couleurQuiJoue){
+    public static void dessinerPlateau(Fenetre f, Plateau p, char couleurQuiJoue, Boolean cheat){
 	f.effacer();
 
 	// echiquier
