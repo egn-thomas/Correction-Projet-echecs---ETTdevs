@@ -3,6 +3,10 @@ import java.util.ArrayList;
 class Plateau{
     private ArrayList<Piece> pieces;
 
+	public Plateau(){
+		this(false);
+	}
+
 	public Plateau(Boolean cheat){
 		if (cheat == false) {
 			pieces = new ArrayList<Piece>();
